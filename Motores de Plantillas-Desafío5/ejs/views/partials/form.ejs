@@ -1,0 +1,37 @@
+<h1 class="title">Formulario</h1>
+<fieldset class="form">
+    <legend class="form__title">Ingresar los datos aquí:</legend>
+    <form action="/productos" method="post" class="form__container">
+        <section class="input">
+            <label for="nombre" class="input__title">Nombre:</label>
+            <% if(incomplete) { %>
+                <input type="text" , name="nombre" , id="nombre" , class="input__box error__input">
+                <% } else { %>
+                    <input type="text" , name="nombre" , id="nombre" , class="input__box input__box--ok">
+                    <% } %>
+        </section>
+        <section class="input">
+            <label for="precio" class="input__title">Precio:</label>
+            <% if(incomplete) { %>
+                <input type="number" name="precio" id="precio" , class="input__box error__input">
+                <% } else { %>
+                    <input type="number" name="precio" id="precio" , class="input__box input__box--ok">
+                    <% } %>
+        </section>
+        <section class="input">
+            <label for="foto" class="input__title">Foto:</label>
+            <% if(incomplete) { %>
+                <input type="text" name="foto" id="foto" , class="input__box error__input">
+                <% } else { %>
+                    <input type="text" name="foto" id="foto" , class="input__box input__box--ok">
+                    <% } %>
+        </section>
+        <% if(incomplete) { %>
+            <section class="error">
+                <p class="error__message">Error: quedó algún casillero en blanco.</p>
+            </section>
+            <% } %>
+                <input type="submit" value="enviar" class="input__submit">
+    </form>
+</fieldset>
+<p class="text">Mira los productos <a href="/productos" class="link">Aquí</a></p>

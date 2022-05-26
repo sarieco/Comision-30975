@@ -1,0 +1,28 @@
+h1(class="title") Formulario
+fieldset(class="form")
+legend(class="form__title") Ingresar los datos aquí:
+form(action="/productos", method="post", class="form__container")
+    section(class="input")
+    label(for="nombre", class="input__title") Nombre:
+    if incomplete
+        input(type="text", name="nombre", id="nombre", class="input__box error__input")
+    else
+        input(type="text", name="nombre", id="nombre", class="input__box input__box--ok")
+    section(class="input")
+    label(for="precio", class="input__title") Precio:
+    if incomplete
+        input(type="number", name="precio", id="precio", class="input__box error__input")
+    else
+        input(type="number", name="precio", id="precio", class="input__box input__box--ok")
+    section(class="input")
+    label(for="foto", class="input__title") Foto:
+    if incomplete
+        input(type="text", name="foto", id="foto", class="input__box error__input")
+    else
+        input(type="text", name="foto", id="foto", class="input__box input__box--ok")
+    if incomplete
+    section(class="error") 
+        p(class="error__message") Error: quedó algún casillero en blanco.
+    input(type="submit", value="enviar", class="input__submit")
+p(class="text") Mira los productos 
+a(href="/productos", class="link") Aquí

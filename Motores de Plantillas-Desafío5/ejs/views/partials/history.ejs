@@ -1,0 +1,42 @@
+<h1 class="title">Productos</h1>
+<p class="text">¿Quieres agregar un nuevo producto?, da click <a href="/" class="link">Aquí</a></p>
+<% if(products.length> 0) { %>
+    <form action="/productos" method="get" class="search">
+        <p class="search__text">Buscar por nombre:</p>
+        <section class="search__container">
+            <input type="search" name="search" id="search" class="search__box" placeholder="Buscar...">
+            <input type="submit" , value="🔍" , class="search__submit">
+        </section>
+    </form>
+    <table class="table">
+        <thead>
+            <tr class="table__header">
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Foto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if(notFound) { %>
+                <tr class="table__main table__main--notFound">
+                    <td>No se encontró este producto.</td>
+                    <% } %>
+                        <% search.forEach(producto=> { %>
+                <tr class="table__main">
+                    <td>
+                        <%- producto.nombre %>
+                    </td>
+                    <td>$<%- producto.precio %>
+                    </td>
+                    <td>
+                        <picture class="table__main-img">
+                            <img src=<%- producto.foto %> alt=<%- producto.nombre %>>
+                        </picture>
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+    <% } else { %>
+        <h3 class="table__none">No hay productos</h3>
+        <% } %>
